@@ -47,3 +47,4 @@ class ToolBar(QToolBar):
         separator.setSizePolicy(
             QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         self.addWidget(separator)
+

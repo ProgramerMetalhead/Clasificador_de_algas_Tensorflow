@@ -15,12 +15,16 @@ class TreeView(QTreeView):
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
         self.file_system_model: QFileSystemModel = QFileSystemModel()
-        self.file_system_model.setRootPath(QDir.currentPath())
-        self.setModel(self.file_system_model)
-        self.setRootIndex(self.file_system_model.index(QDir.currentPath()))
         self.setColumnWidth(0, 100)
         self.setFixedWidth(150)
         self.setSortingEnabled(True)
+
+    def set_path(self, folder_path) -> None:
+
+        if folder_path:
+            self.file_system_model.setRootPath(folder_path)
+            self.setModel(self.file_system_model)
+            self.setRootIndex(self.file_system_model.index(folder_path))
 
     def clear_view(self) -> None:
         """
